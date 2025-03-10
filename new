@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z "$1" ]];
+then
+  echo "need problem number"
+fi
+pid=`printf "p%03d" $1` # 52 -> p052
+cargo init --vcs none "$pid"
