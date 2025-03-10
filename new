@@ -8,8 +8,4 @@ fi
 
 pid=`printf "p%03d" $1` # 52 -> p052
 
-# could use 'cargo init --vcs none' but this removes '.gitignore'
-# instead just init new project and remove .git directory
-
-cargo init "$pid"
-rm -rf "./$pid/.git"
+cargo init --vcs none "$pid"
