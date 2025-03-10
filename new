@@ -2,7 +2,14 @@
 
 if [[ -z "$1" ]];
 then
-  echo "need problem number"
+  echo "need problem number; ie '$0 52'"
+  exit 1
 fi
+
 pid=`printf "p%03d" $1` # 52 -> p052
-cargo init --vcs none "$pid"
+
+# could use 'cargo init --vcs none' but this removes '.gitignore'
+# instead just init new project and remove .git directory
+
+cargo init "$pid"
+rm -rf "./$pid/.git"
