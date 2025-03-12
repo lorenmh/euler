@@ -32,6 +32,7 @@ fn main() {
             factors[i] *= (i as u128 * 10) + j;
         }
     }
+    println!("Factors: {:?}", factors);
     let mut factors_digits = Vec::new();
     for i in 0..10 {
         let mut k = factors[i];
@@ -46,7 +47,9 @@ fn main() {
     for factor in factors_digits {
         acc = mul(&factor, &acc);
     }
+    acc.reverse();
     let result: u16 = acc.iter().sum();
+    println!("Result: {}", acc.iter().map(|n| n.to_string()).collect::<String>());
     println!("{}", result);
 }
 
